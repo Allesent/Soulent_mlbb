@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171519">
+  <meta name="description" content="Информационный портал сообщества Soullent. Правила, чистка, норма и администрация.">
+  <title>Soullent — Community Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #171519; --panel: #242127; --panel2: #2d2830; --line: #49404b;
+      --red: #b51f35; --red2: #e04a5c; --lav: #b6a6c4; --white: #f4eff3;
+      --muted: #a79ba9; --shadow: 0 18px 55px #0008;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--white); background:
+        radial-gradient(ellipse at 12% 8%, #5b253d55, transparent 34rem),
+        radial-gradient(ellipse at 90% 40%, #3d274755, transparent 38rem),
+        linear-gradient(145deg, #171519, #211b22 55%, #171519);
+      font-family: Manrope, Arial, sans-serif; min-height: 100vh;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .14;
+      background-image: radial-gradient(#d8cbd8 0.7px, transparent 0.7px);
+      background-size: 17px 17px; mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+    a { color: inherit; }
+    .shell { width: min(1080px, calc(100% - 32px)); margin: 0 auto; padding: 25px 0 42px; position: relative; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:22px; }
+    .brand { display:flex; align-items:center; gap:13px; min-width:0; }
+    .sigil { width:44px; height:44px; border:1px solid #b6a6c477; border-radius:14px; display:grid; place-items:center; color:var(--lav); font:700 26px "Cormorant Garamond",serif; box-shadow: inset 0 0 20px #b51f3522; }
+    .brand-name { font:700 25px "Cormorant Garamond",serif; letter-spacing:.06em; white-space:nowrap; }
+    .brand-sub { color:var(--muted); font-size:10px; letter-spacing:.22em; text-transform:uppercase; margin-top:1px; }
+    .top-tag { border:1px solid var(--line); color:var(--lav); border-radius:999px; padding:9px 13px; font-size:10px; letter-spacing:.15em; white-space:nowrap; }
+    .hero { position:relative; overflow:hidden; border:1px solid #c7b7c344; border-radius:22px; box-shadow:var(--shadow); background:#211c22; }
+    .hero img { display:block; width:100%; aspect-ratio: 16/7; object-fit:cover; }
+    .hero-shade { position:absolute; inset:0; background:linear-gradient(90deg,#100d12a8,transparent 75%),linear-gradient(0deg,#100d12aa,transparent 60%); }
+    .hero-copy { position:absolute; left:clamp(18px,5vw,55px); bottom:clamp(18px,5vw,48px); max-width:540px; }
+    .eyebrow { color:#e7a4ad; font-size:10px; letter-spacing:.28em; text-transform:uppercase; font-weight:800; }
+    h1 { font:600 clamp(34px,7vw,76px)/.95 "Cormorant Garamond",serif; letter-spacing:.04em; margin:10px 0 12px; text-shadow:0 3px 24px #000; }
+    .hero-copy p { color:#eee3eb; font-size:clamp(12px,1.7vw,15px); margin:0; max-width:430px; line-height:1.65; }
+    .nav-heading { display:flex; align-items:center; gap:14px; margin:34px 0 16px; }
+    .nav-heading h2 { margin:0; font:700 24px "Cormorant Garamond",serif; letter-spacing:.22em; }
+    .nav-heading:after { content:""; height:1px; flex:1; background:linear-gradient(90deg,var(--red),transparent); }
+    .nav-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .nav-card { text-align:left; cursor:pointer; border:1px solid var(--line); background:linear-gradient(145deg,#2c2730,#211d23); color:var(--white); border-radius:16px; padding:0; overflow:hidden; transition:.22s ease; box-shadow:0 8px 24px #0003; }
+    .nav-card:hover { transform:translateY(-4px); border-color:#bd5262; box-shadow:0 14px 30px #0006; }
+    .nav-card img { display:block; width:100%; aspect-ratio: 2.4/1; object-fit:cover; }
+    .nav-card-body { padding:15px 16px 17px; }
+    .nav-card .num { color:var(--red2); font-size:10px; font-weight:800; letter-spacing:.2em; }
+    .nav-card strong { display:block; font:700 24px "Cormorant Garamond",serif; letter-spacing:.08em; margin:4px 0; }
+    .nav-card small { color:var(--muted); font-size:11px; }
+    .nav-card .arrow { float:right; color:var(--lav); font-size:20px; margin-top:-25px; }
+    .view { display:none; animation:appear .28s ease; }
+    .view.active { display:block; }
+    @keyframes appear { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+    .back { border:1px solid var(--line); color:var(--lav); background:#28232b; border-radius:999px; padding:10px 15px; cursor:pointer; font:600 12px Manrope,sans-serif; margin:24px 0 17px; }
+    .back:hover { border-color:var(--red2); color:var(--white); }
+    .section-banner { border-radius:17px; overflow:hidden; border:1px solid #d8cbd844; box-shadow:var(--shadow); margin-bottom:22px; }
+    .section-banner img { width:100%; display:block; aspect-ratio: 2.4/1; object-fit:cover; }
+    .section-title { display:flex; align-items:end; justify-content:space-between; gap:12px; margin:12px 0 18px; }
+    .section-title h2 { font:700 clamp(30px,5vw,43px) "Cormorant Garamond",serif; letter-spacing:.12em; margin:0; }
+    .section-title span { color:var(--muted); font-size:10px; letter-spacing:.15em; }
+    .notice { border-left:3px solid var(--red2); background:#32252d; border-radius:0 12px 12px 0; padding:15px 17px; line-height:1.65; color:#f0e8ef; margin:0 0 18px; }
+    .notice strong { color:#f1b1ba; }
+    .cards { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    details.rule { background:linear-gradient(145deg,#29242d,#211d23); border:1px solid #4a414c; border-radius:14px; overflow:hidden; }
+    details.rule[open] { border-color:#a44858; }
+    details.rule summary { cursor:pointer; list-style:none; padding:16px; display:flex; align-items:center; gap:12px; font-weight:700; }
+    details.rule summary::-webkit-details-marker { display:none; }
+    .rule-icon { width:29px; height:29px; flex:none; border-radius:9px; display:grid; place-items:center; background:#7f2638; color:#fff; font-size:13px; }
+    .chev { margin-left:auto; color:var(--lav); transition:transform .2s; }
+    details[open] .chev { transform:rotate(180deg); }
+    .rule-content { padding:0 16px 17px 57px; color:#d7ced8; font-size:13px; line-height:1.75; white-space:pre-line; }
+    .penalty { display:inline-block; margin-top:10px; padding:7px 10px; border-radius:8px; background:#482832; color:#f0b4bd; font-size:11px; font-weight:800; }
+    .subheading { color:#e4a1ac; font:700 20px "Cormorant Garamond",serif; letter-spacing:.1em; margin:25px 0 12px; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:15px 0; }
+    .stat { border:1px solid var(--line); border-radius:14px; background:#29242d; padding:17px; }
+    .stat b { display:block; color:#f0aab5; font:700 29px "Cormorant Garamond",serif; }
+    .stat span { color:var(--muted); font-size:11px; line-height:1.5; }
+    .admin-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .admin-card { border:1px solid var(--line); border-radius:14px; padding:17px; background:linear-gradient(145deg,#2d2730,#211d23); }
+    .admin-card h3 { margin:0 0 9px; color:#efb1ba; font:700 21px "Cormorant Garamond",serif; letter-spacing:.04em; }
+    .admin-card p { margin:0; color:#d7ced8; font-size:12px; line-height:1.8; }
+    .links { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:28px; }
+    .link-card { text-decoration:none; display:flex; align-items:center; gap:11px; padding:14px; background:#29242d; border:1px solid var(--line); border-radius:13px; transition:.2s; }
+    .link-card:hover { border-color:var(--red2); transform:translateY(-2px); }
+    .link-icon { width:34px; height:34px; display:grid; place-items:center; background:#482832; border-radius:10px; color:#f0b1ba; font-weight:800; }
+    .link-card b { display:block; font-size:12px; }
+    .link-card small { color:var(--muted); font-size:10px; }
+    footer { border-top:1px solid #554653; margin-top:30px; padding-top:18px; display:flex; justify-content:space-between; gap:12px; color:#8f8492; font-size:10px; letter-spacing:.1em; }
+    .hidden { display:none !important; }
+    @media (max-width:700px) {
+      .shell { width:min(100% - 22px, 560px); padding-top:15px; }
+      header { margin-bottom:15px; }
+      .brand-name { font-size:21px; }
+      .top-tag { font-size:8px; padding:8px 10px; }
+      .hero { border-radius:16px; }
+      .hero img { aspect-ratio: 1.25/1; }
+      .hero-copy { max-width:85%; }
+      .nav-grid { grid-template-columns:1fr; gap:10px; }
+      .nav-card { display:grid; grid-template-columns:38% 1fr; min-height:104px; }
+      .nav-card img { height:100%; aspect-ratio:auto; }
+      .nav-card-body { align-self:center; padding:12px; }
+      .nav-card strong { font-size:22px; }
+      .cards,.admin-grid { grid-template-columns:1fr; }
+      .section-banner img { aspect-ratio:1.8/1; }
+      .stats { gap:7px; }
+      .stat { padding:12px 9px; }
+      .stat b { font-size:24px; }
+      .stat span { font-size:9px; }
+      .links { grid-template-columns:1fr; }
+      footer { flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="brand">
+        <div class="sigil">S</div>
+        <div><div class="brand-name">Soullent</div><div class="brand-sub">Community information</div></div>
+      </div>
+      <div class="top-tag">COMMUNITY GUIDE · 2026</div>
+    </header>
+
+    <section id="home" class="view active">
+      <div class="hero">
+        <img src="assets/navigation.jpg" alt="Soullent — Navigation banner">
+        <div class="hero-shade"></div>
+        <div class="hero-copy">
+          <div class="eyebrow">Welcome to the community</div>
+          <h1>SOULLENT</h1>
+          <p>Информационный портал сообщества. Здесь собраны правила, условия активности и информация об администрации.</p>
+        </div>
+      </div>
+      <div class="nav-heading"><h2>НАВИГАЦИЯ</h2></div>
+      <div class="nav-grid">
+        <button class="nav-card" data-view="rules">
+          <img src="assets/rules.jpg" alt="Rules banner">
+          <div class="nav-card-body"><span class="num">01 / COMMUNITY</span><strong>ПРАВИЛА</strong><small>Ознакомьтесь с правилами общения</small><span class="arrow">↗</span></div>
+        </button>
+        <button class="nav-card" data-view="cleaning">
+          <img src="assets/navigation.jpg" alt="Community banner">
+          <div class="nav-card-body"><span class="num">02 / ACTIVITY</span><strong>ЧИСТКА И НОРМА</strong><small>Активность, сроки и условия чистки</small><span class="arrow">↗</span></div>
+        </button>
+        <button class="nav-card" data-view="admins">
+          <img src="assets/admins.jpg" alt="Admins banner">
+          <div class="nav-card-body"><span class="num">03 / STAFF</span><strong>АДМИНИСТРАЦИЯ</strong><small>Роли и обязанности команды</small><span class="arrow">↗</span></div>
+        </button>
+      </div>
+      <div class="links">
+        <a class="link-card" href="https://t.me/Soullentmlbb" target="_blank" rel="noopener"><span class="link-icon">✦</span><span><b>Инфо-канал</b><small>@Soullentmlbb</small></span></a>
+        <a class="link-card" href="https://www.tiktok.com/@soullent..mlbb" target="_blank" rel="noopener"><span class="link-icon">♪</span><span><b>TikTok</b><small>@soullent..mlbb</small></span></a>
+        <a class="link-card" href="https://t.me/Soullentmlbb" target="_blank" rel="noopener"><span class="link-icon">✉</span><span><b>Связь</b><small>Личные сообщения канала</small></span></a>
+      </div>
+    </section>
+
+    <section id="rules" class="view">
+      <button class="back" data-home>← НАЗАД К НАВИГАЦИИ</button>
+      <div class="section-banner"><img src="assets/rules.jpg" alt="Rules"></div>
+      <div class="section-title"><h2>ПРАВИЛА</h2><span>01 / COMMUNITY</span></div>
+      <div class="notice"><strong>Настоятельно рекомендуем ознакомиться!</strong><br>Незнание правил не освобождает от ответственности.<br><br>Варн — минимум от 3х недель<br>Мут — минимум от 1го часа</div>
+      <div class="cards">
+        <details class="rule"><summary><span class="rule-icon">01</span>Общайтесь с уважением <span class="chev">⌄</span></summary><div class="rule-content">Недопустимы оскорбления, унижения, травля в адрес других участников и администрации.
+Запрещены любые формы дискриминации, включая, но не ограничиваясь, дискриминацией по признакам гендера, возраста, национальности, внешности, религии, сексуальной ориентации, психического или физического состояния, социального статуса и других личных характеристик.
+Недопустимы распространения гендерных стереотипов и сексистских высказываний (явных и завуалированных).
+*Шуточные «обзывания» допускаются в меру при условии, что они не задевают и не обижают других участников.<div class="penalty">Нарушение: Варн / Мут / Бан</div></div></details>
+        <details class="rule"><summary><span class="rule-icon">02</span>Конфликтные ситуации <span class="chev">⌄</span></summary><div class="rule-content">Разжигание конфликтов и участие в них запрещено.
+При возникновении конфликтных ситуаций не вступайте в конфронтацию, а немедленно обратитесь к администрации.<div class="penalty">Нарушение: участие — Варн / продолжение — Мут</div></div></details>
+        <details class="rule"><summary><span class="rule-icon">03</span>Политика / религия <span class="chev">⌄</span></summary><div class="rule-content">Воздержитесь от обсуждения тем, касающихся политики, религии, наций, семьи, личности, суицида и аналогичных чувствительных вопросов (триггер-тем).
+Запрещены любые формы пропаганды и навязчивой идеологии.
+Материалы с изображением вышеупомянутого запрещены в любом виде.<div class="penalty">Нарушение: Варн / Мут / Бан</div></div></details>
+        <details class="rule"><summary><span class="rule-icon">04</span>Слив личной информации <span class="chev">⌄</span></summary><div class="rule-content">Слив личной информации участников без разрешения её владельца запрещён (ФИО, возраст, адрес, личные контакты, переписки и прочие данные).<div class="penalty">Нарушение: Мут / Варн / Бан</div></div></details>
+        <details class="rule"><summary><span class="rule-icon">05</span>Изображения и видеоматериалы 18+ <span class="chev">⌄</span></summary><div class="rule-content">Контент 18+ на аватарках и в эмодзи-статусе, материалы с откровенным изображением половых органов или аналогичным контентом 18+, а также материалы, связанные с расчленёнкой и наркотиками, запрещены в любом виде, включая контент под блюром.
+Контент 16+ и с намёками на 18+ должен быть размещён с блюром (размытием).
+Нежелательны ники и авы с оскорбительными и провокационными изображениями.<div class="penalty">Нарушение: Варн / Бан навсегда</div></div></details>
+        <details class="rule"><summary><span class="rule-icon">06</span>Спам <span class="chev">⌄</span></summary><div class="rule-content">Спам от одного участника — более 4 одинаковых и/или не имеющих смысла сообщений, стикеров, GIF, кружков, голосовых сообщений или команд бота.<div class="penalty">Нарушение: Варн / продолжение — Мут</div></div></details>
+        <details class="rule"><summary><span class="rule-icon">07</span>Реклама, ссылки, боты и команды <span class="chev">⌄</span></summary><div class="rule-content">Запрещены любые ссылки, реклама, продажа товаров и услуг, пересылка сообщений из других чатов, каналов и ботов без разрешения администрации.
+Также запрещено использование любых функций внешних ботов, команды «шепот», любых скрытых сообщений и инлайн-ботов, не входящих в официальный список инструментов чата и не разрешённых администрацией.
+Запрещены любые сообщения, содержащие финансовые реквизиты или просьбы о переводе средств.<div class="penalty">Нарушение: Мут / Варн / Бан</div></div></details>
+        <details class="rule"><summary><span class="rule-icon">08</span>Жалобы <span class="chev">⌄</span></summary><div class="rule-content">Если на вас поступают жалобы, касающиеся вашего поведения, нарушающего комфорт группы и являющегося неадекватным, но правила не были нарушены, администрация имеет право исключить вас из чата безвозвратно.
+Жалобы на участника должны быть обоснованны (в идеале — со скриншотами). С ним будет проведена профилактическая беседа и вынесен вердикт наказания.</div></details>
+        <details class="rule"><summary><span class="rule-icon">09</span>Дополнение <span class="chev">⌄</span></summary><div class="rule-content">Администрация вправе применять степень наказания в зависимости от тяжести нарушения.
+Если вы заходите в чат с друзьями или зовёте их, находясь в чате, не забывайте про остальных. Мы рады всем, поэтому давайте будем одним большим и дружным коллективом.
+Пожалуйста, переносите активные личные переписки с друзьями/партнёрами в ЛС, чтобы основной чат оставался удобным для всех.
+Если вы не согласны с наказанием — обратитесь к администрации для рассмотрения ситуации.
+Любые попытки нарочно обойти правила считаются умышленным избеганием наказания. В таких случаях администрация оценивает не только формальность, но и суть нарушения.
+Саботаж, агитация, дестабилизация и дискредитация администрации наказуемы баном без права обжалования.
+Если хотите выйти — обдумайте своё решение. Выход = бан, но если причина ухода была веской, вы сможете вернуться, однако в первую неделю норма — 200 сообщений.
+При выходе: отметка владельца; роль; по желанию — причина.</div></details>
+      </div>
+    </section>
+
+    <section id="cleaning" class="view">
+      <button class="back" data-home>← НАЗАД К НАВИГАЦИИ</button>
+      <div class="section-banner"><img src="assets/navigation.jpg" alt="Soullent community"></div>
+      <div class="section-title"><h2>ЧИСТКА И НОРМА</h2><span>02 / ACTIVITY</span></div>
+      <div class="notice">Следите за своей активностью и предупреждайте администрацию, если не сможете выполнять норму.</div>
+      <div class="stats">
+        <div class="stat"><b>Воскресенье</b><span>День проведения чистки</span></div>
+        <div class="stat"><b>20:00</b><span>Время по Москве</span></div>
+        <div class="stat"><b>100</b><span>Сообщений в неделю</span></div>
+      </div>
+      <div class="cards">
+        <details class="rule" open><summary><span class="rule-icon">01</span>Недельная норма <span class="chev">⌄</span></summary><div class="rule-content">Норма — 100 сообщений в неделю.</div></details>
+        <details class="rule"><summary><span class="rule-icon">02</span>Недобор нормы <span class="chev">⌄</span></summary><div class="rule-content">Недобор нормы — Варн.
+Менее 50 сообщений — бан.
+3 Варна — бан.</div></details>
+        <details class="rule"><summary><span class="rule-icon">03</span>Неактив <span class="chev">⌄</span></summary><div class="rule-content">Неактив дольше 4 дней без предупреждения — бан.</div></details>
+        <details class="rule"><summary><span class="rule-icon">04</span>Новые участники <span class="chev">⌄</span></summary><div class="rule-content">Нью 4 дня чистка не касается.</div></details>
+        <details class="rule"><summary><span class="rule-icon">05</span>Выход из чата <span class="chev">⌄</span></summary><div class="rule-content">Если хотите выйти — обдумайте своё решение. Выход = бан, но если причина ухода была веской, вы сможете вернуться, но в первую неделю норма — 200 сообщений.
+При выходе:
+• отметка владельца;
+• роль;
+• по желанию — причина.</div></details>
+      </div>
+    </section>
+
+    <section id="admins" class="view">
+      <button class="back" data-home>← НАЗАД К НАВИГАЦИИ</button>
+      <div class="section-banner"><img src="assets/admins.jpg" alt="Admins"></div>
+      <div class="section-title"><h2>АДМИНИСТРАЦИЯ</h2><span>03 / STAFF</span></div>
+      <div class="notice">Если у вас есть вопросы, идеи или отзывы, не стесняйтесь обращаться к нам.</div>
+      <div class="admin-grid">
+        <article class="admin-card"><h3>Владелец</h3><p>Набор и принятие нью<br>Проведение интерактивов<br>Монтаж видео и ведение TikTok-аккаунта<br>Слежка за чатом<br>Разрешение конфликтных ситуаций и вынесение вердиктов</p></article>
+        <article class="admin-card"><h3>Совладелец</h3><p>Набор и принятие нью<br>Проведение интерактивов<br>Слежка за чатом<br>Ведение развлекательного канала<br>Помощь с набором нормы<br>Разрешение конфликтных ситуаций и вынесение вердикта</p></article>
+        <article class="admin-card"><h3>Ст. админ</h3><p>Слежка за чатом<br>Разрешение конфликтных ситуаций и вынесение вердикта<br>Настройка ботов и решение технических вопросов<br>Выдача рестов</p></article>
+        <article class="admin-card"><h3>Ст. админ / монтажёр</h3><p>Слежка за чатом<br>Создание контента для чата и TikTok</p></article>
+        <article class="admin-card"><h3>Ночной админ</h3><p>Слежка за чатом в ночное время<br>Помощь в решении конфликтных ситуаций<br>Помощь с набором нормы</p></article>
+        <article class="admin-card"><h3>Админ по чистке</h3><p>Слежка за чатом<br>Помощь в решении конфликтных ситуаций<br>Помощь с набором нормы<br>Проведение чистки</p></article>
+        <article class="admin-card"><h3>Мл. админ / монтажёр</h3><p>Создание контента для TikTok<br>Слежка за чатом</p></article>
+        <article class="admin-card"><h3>Монтажёр</h3><p>Создание контента для TikTok</p></article>
+      </div>
+    </section>
+
+    <footer><span>SOULLENT COMMUNITY · INFORMATION PORTAL</span><span>UNOFFICIAL COMMUNITY GUIDE</span></footer>
+  </main>
+  <script>
+    const views = [...document.querySelectorAll('.view')];
+    function showView(id) {
+      views.forEach(v => v.classList.toggle('active', v.id === id));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      history.replaceState(null, '', id === 'home' ? location.pathname : '#' + id);
+    }
+    document.querySelectorAll('[data-view]').forEach(btn => btn.addEventListener('click', () => showView(btn.dataset.view)));
+    document.querySelectorAll('[data-home]').forEach(btn => btn.addEventListener('click', () => showView('home')));
+    const initial = location.hash.slice(1);
+    if (['rules','cleaning','admins'].includes(initial)) showView(initial);
+  </script>
+</body>
+</html>
