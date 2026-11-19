@@ -83,10 +83,18 @@
     .stat { border:1px solid var(--line); border-radius:14px; background:#29242d; padding:17px; }
     .stat b { display:block; color:#f0aab5; font:700 29px "Cormorant Garamond",serif; }
     .stat span { color:var(--muted); font-size:11px; line-height:1.5; }
-    .admin-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-    .admin-card { border:1px solid var(--line); border-radius:14px; padding:17px; background:linear-gradient(145deg,#2d2730,#211d23); }
-    .admin-card h3 { margin:0 0 9px; color:#efb1ba; font:700 21px "Cormorant Garamond",serif; letter-spacing:.04em; }
-    .admin-card p { margin:0; color:#d7ced8; font-size:12px; line-height:1.8; }
+    .admin-group-title { color:#e4a1ac; font:700 23px "Cormorant Garamond",serif; letter-spacing:.1em; margin:25px 0 13px; }
+    .admin-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .admin-card { display:grid; grid-template-columns:112px 1fr; gap:15px; align-items:start; border:1px solid var(--line); border-radius:15px; padding:13px; background:linear-gradient(145deg,#2d2730,#211d23); overflow:hidden; }
+    .admin-card img { display:block; width:112px; height:140px; object-fit:cover; border-radius:10px; border:1px solid #b51f3577; }
+    .admin-card h3 { margin:1px 0 3px; color:#efb1ba; font:700 23px "Cormorant Garamond",serif; letter-spacing:.04em; }
+    .admin-role { color:var(--lav); font-size:10px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; }
+    .admin-card p { margin:0; color:#d7ced8; font-size:11px; line-height:1.75; }
+    .vacancy-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .vacancy-card { border:1px solid #78404c; border-radius:14px; padding:17px; background:linear-gradient(145deg,#30242d,#211d23); }
+    .vacancy-card h3 { margin:0 0 8px; color:#efb1ba; font:700 21px "Cormorant Garamond",serif; }
+    .vacancy-card p { margin:0; color:#d7ced8; font-size:12px; line-height:1.8; }
+    .vacancy-label { display:inline-block; margin-bottom:10px; padding:5px 8px; border:1px solid #a44858; border-radius:999px; color:#f0b4bd; font-size:9px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
     .links { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:28px; }
     .link-card { text-decoration:none; display:flex; align-items:center; gap:11px; padding:14px; background:#29242d; border:1px solid var(--line); border-radius:13px; transition:.2s; }
     .link-card:hover { border-color:var(--red2); transform:translateY(-2px); }
@@ -108,7 +116,9 @@
       .nav-card img { height:100%; aspect-ratio:auto; }
       .nav-card-body { align-self:center; padding:12px; }
       .nav-card strong { font-size:22px; }
-      .cards,.admin-grid { grid-template-columns:1fr; }
+      .cards,.admin-grid,.vacancy-grid { grid-template-columns:1fr; }
+      .admin-card { grid-template-columns:96px 1fr; gap:12px; padding:11px; }
+      .admin-card img { width:96px; height:124px; }
       .section-banner img { aspect-ratio:1.8/1; }
       .stats { gap:7px; }
       .stat { padding:12px 9px; }
@@ -227,15 +237,40 @@
       <div class="section-banner"><img src="assets/admins.jpg" alt="Admins"></div>
       <div class="section-title"><h2>АДМИНИСТРАЦИЯ</h2><span>03 / STAFF</span></div>
       <div class="notice">Если у вас есть вопросы, идеи или отзывы, не стесняйтесь обращаться к нам.</div>
+      <h3 class="admin-group-title">ДЕЙСТВУЮЩАЯ АДМИНИСТРАЦИЯ</h3>
       <div class="admin-grid">
-        <article class="admin-card"><h3>Владелец</h3><p>Набор и принятие нью<br>Проведение интерактивов<br>Монтаж видео и ведение TikTok-аккаунта<br>Слежка за чатом<br>Разрешение конфликтных ситуаций и вынесение вердиктов</p></article>
-        <article class="admin-card"><h3>Совладелец</h3><p>Набор и принятие нью<br>Проведение интерактивов<br>Слежка за чатом<br>Ведение развлекательного канала<br>Помощь с набором нормы<br>Разрешение конфликтных ситуаций и вынесение вердикта</p></article>
-        <article class="admin-card"><h3>Ст. админ</h3><p>Слежка за чатом<br>Разрешение конфликтных ситуаций и вынесение вердикта<br>Настройка ботов и решение технических вопросов<br>Выдача рестов</p></article>
-        <article class="admin-card"><h3>Ст. админ / монтажёр</h3><p>Слежка за чатом<br>Создание контента для чата и TikTok</p></article>
-        <article class="admin-card"><h3>Ночной админ</h3><p>Слежка за чатом в ночное время<br>Помощь в решении конфликтных ситуаций<br>Помощь с набором нормы</p></article>
-        <article class="admin-card"><h3>Админ по чистке</h3><p>Слежка за чатом<br>Помощь в решении конфликтных ситуаций<br>Помощь с набором нормы<br>Проведение чистки</p></article>
-        <article class="admin-card"><h3>Мл. админ / монтажёр</h3><p>Создание контента для TikTok<br>Слежка за чатом</p></article>
-        <article class="admin-card"><h3>Монтажёр</h3><p>Создание контента для TikTok</p></article>
+        <article class="admin-card">
+          <img src="assets/kagura.jpg" alt="Аватар Кагуры">
+          <div><h3>Кагура</h3><div class="admin-role">Владелец</div>
+            <p>Набор и принятие новичков<br>Проведение интерактивов<br>Монтаж видео и ведение TikTok<br>Слежка за чатом<br>Разрешение конфликтов и вынесение вердиктов</p>
+          </div>
+        </article>
+        <article class="admin-card">
+          <img src="assets/zhuxin.jpg" alt="Аватар Чжусинь">
+          <div><h3>Чжусинь</h3><div class="admin-role">Совладелец</div>
+            <p>Набор и принятие новичков<br>Проведение интерактивов<br>Слежка за чатом<br>Ведение развлекательного канала<br>Помощь с нормой<br>Разрешение конфликтов и вынесение вердиктов</p>
+          </div>
+        </article>
+        <article class="admin-card">
+          <img src="assets/sue.jpg" alt="Аватар Суе">
+          <div><h3>Суе</h3><div class="admin-role">Старший администратор</div>
+            <p>Слежка за чатом<br>Разрешение конфликтов и вынесение вердиктов<br>Настройка ботов и решение технических вопросов<br>Выдача рестов</p>
+          </div>
+        </article>
+        <article class="admin-card">
+          <img src="assets/odetta.jpg" alt="Аватар Одетты">
+          <div><h3>Одетта</h3><div class="admin-role">Старший администратор</div>
+            <p>Слежка за чатом<br>Разрешение конфликтов и вынесение вердиктов<br>Настройка ботов и решение технических вопросов<br>Выдача рестов</p>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="admin-group-title">ОТКРЫТЫЕ ВАКАНСИИ</h3>
+      <div class="vacancy-grid">
+        <article class="vacancy-card"><span class="vacancy-label">Открытая вакансия</span><h3>Ночной администратор</h3><p>Слежка за чатом в ночное время<br>Помощь с конфликтами<br>Помощь с выполнением нормы</p></article>
+        <article class="vacancy-card"><span class="vacancy-label">Открытая вакансия</span><h3>Администратор по чистке</h3><p>Слежка за чатом<br>Разрешение конфликтов<br>Помощь с выполнением нормы<br>Проведение чистки</p></article>
+        <article class="vacancy-card"><span class="vacancy-label">Открытая вакансия</span><h3>Младший администратор / монтажёр</h3><p>Создание контента для TikTok<br>Слежка за чатом</p></article>
+        <article class="vacancy-card"><span class="vacancy-label">Открытая вакансия</span><h3>Монтажёр</h3><p>Создание и монтаж контента для TikTok</p></article>
       </div>
     </section>
 
